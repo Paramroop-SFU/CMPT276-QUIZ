@@ -6,8 +6,8 @@ Q3: Does white light reflect or absorb light? reflects
 Q4: what is not a primary colours that a screen would use? 
  
 */
-document.getElementById("previous").disabled = true
-
+document.getElementById("previous").disabled = true // make the previous button disable at start
+ // object that contains quiz question info
 let Q1 = {
         question: 'Q1: what is scientific name of human? ',
         option1: ' Homo sapiens ',
@@ -52,10 +52,10 @@ let Q5 = {
     answer: "3",
 }
 
-let saveAnswer = [-1,-1,-1,-1,-1];
-let questions = [Q1,Q2,Q3,Q4,Q5];
+let saveAnswer = [-1,-1,-1,-1,-1]; // list that will contain the users saved answers
+let questions = [Q1,Q2,Q3,Q4,Q5]; // the question info object into a list
 let currentQuestion = 0;
-function getoption(x,y)
+function getoption(x,y) // function that pulls the question info
 {
    if (y == 0)
     {
@@ -77,12 +77,12 @@ function getoption(x,y)
     
 }
 
-function nextQuestions()
+function nextQuestions() // function that will change to next page
 {
   
     
-    currentQuestion++;
-    let myElement = document.getElementById('the-question')
+    currentQuestion++; // increment the next question
+    let myElement = document.getElementById('the-question')  // change the elements content to next question
     myElement.textContent = questions[currentQuestion].question;
     let myElement1 = document.getElementById('option1')
     myElement1.textContent = questions[currentQuestion].option1;
@@ -95,7 +95,7 @@ function nextQuestions()
 
     let radioButtons = document.getElementsByName('options-linked'); // to clear the radio
 
-    for (let i = 0; i<4; i++)
+    for (let i = 0; i<4; i++) // save the answer user wrote and clears it
     {
         if (radioButtons[i].checked == true)
         {
@@ -106,7 +106,7 @@ function nextQuestions()
         radioButtons[i].checked = false;
     }
     
-    if (currentQuestion < 5)
+    if (currentQuestion < 5) // if the page its going to had a answer selected than recheck it to user selected answer
     {
        if (saveAnswer[currentQuestion] != -1)
        {
@@ -117,7 +117,7 @@ function nextQuestions()
     }
    
 
-    if (questions.length-1 == currentQuestion)
+    if (questions.length-1 == currentQuestion) // if last page disable next button
     {
         document.getElementById("next").disabled = true
         return;
@@ -128,12 +128,12 @@ function nextQuestions()
 
     }
 }
-function prevQuestions()
+function prevQuestions() // function that goes to previous page
 {
    
     
-    currentQuestion--;
-    let myElement = document.getElementById('the-question')
+    currentQuestion--; // decrement next question
+    let myElement = document.getElementById('the-question') // change the element to next question
     myElement.textContent = questions[currentQuestion].question;
     let myElement1 = document.getElementById('option1')
     myElement1.textContent = questions[currentQuestion].option1;
@@ -146,7 +146,7 @@ function prevQuestions()
 
     let radioButtons = document.getElementsByName('options-linked'); // to clear the radio
 
-    for (let i = 0; i<4; i++)
+    for (let i = 0; i<4; i++) // save the last question and clear it
     {
         if (radioButtons[i].checked == true)
         {
@@ -157,7 +157,7 @@ function prevQuestions()
         radioButtons[i].checked = false;
     }
     
-    if (currentQuestion >= 0)
+    if (currentQuestion >= 0) // if user put a answer than check// basically shows the saved Q
     {
        if (saveAnswer[currentQuestion] != -1)
        {
@@ -167,7 +167,7 @@ function prevQuestions()
        }
     }
     
-    if (0  == currentQuestion)
+    if (0  == currentQuestion) // disable previous if on first page
     {
         document.getElementById("previous").disabled = true
 
@@ -180,16 +180,16 @@ function prevQuestions()
     }
     
 }
-let corrctAns = [Q1.answer-1,Q2.answer-1,Q3.answer-1,Q4.answer-1,Q5.answer-1]
-var s = 'option1'
-let score = 0;
-let QuestionGotright = [-1,-1,-1,-1,-1]
+let corrctAns = [Q1.answer-1,Q2.answer-1,Q3.answer-1,Q4.answer-1,Q5.answer-1] // the solutions
 
-function results()
+let score = 0; // the score of the user
+let QuestionGotright = [-1,-1,-1,-1,-1] // which questions they got right
+
+function results() // shows the result of there exam
 {
     let radioButtons = document.getElementsByName('options-linked'); // to clear the radio
 
-    for (let i = 0; i<4; i++)
+    for (let i = 0; i<4; i++) // save the question if user changed the answer
     {
         if (radioButtons[i].checked == true)
         {
@@ -199,7 +199,7 @@ function results()
         }
         radioButtons[i].checked = false;
     }
-    for (let i = 0; i < corrctAns.length; i++)
+    for (let i = 0; i < corrctAns.length; i++) // checks which questions user got right
     {
        
         if (corrctAns[i] == saveAnswer[i])
@@ -215,12 +215,12 @@ function results()
            
 
     }
-    document.getElementById('choices').innerHTML = '';
-    document.getElementById('the-question').innerHTML = '';
-    document.getElementById('reveal').innerHTML = 'The results are ';
-    document.getElementById('reveal2').innerHTML = 'you got ' + score + '/5';
-    document.getElementById('reveal3').innerHTML = '<br>';
-    for (let i = 4; i< 9; i++)
+    document.getElementById('choices').innerHTML = ''; // remove old page
+    document.getElementById('the-question').innerHTML = ''; // remove old text
+    document.getElementById('reveal').innerHTML = 'The results are '; // show result
+    document.getElementById('reveal2').innerHTML = 'you got ' + score + '/5'; // show result
+    document.getElementById('reveal3').innerHTML = '<br>'; // new line
+    for (let i = 4; i< 9; i++) // show which questions user got right and what they  picked
     {
         if (QuestionGotright[i-4] == 1)
         {
@@ -237,9 +237,9 @@ function results()
    
 }
 
-document.getElementById('next').addEventListener('click', nextQuestions);
-document.getElementById('previous').addEventListener('click', prevQuestions);
-document.getElementById('submitBtn').addEventListener('click', results);
-
+document.getElementById('next').addEventListener('click', nextQuestions); // call function when button gets clicked
+document.getElementById('previous').addEventListener('click', prevQuestions); // call function when button gets clicked
+document.getElementById('submitBtn').addEventListener('click', results); // call function when button gets clicked
+ 
 
 
