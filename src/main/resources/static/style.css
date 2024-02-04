@@ -1,0 +1,133 @@
+
+*{
+    margin: 0px;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    cursor:default;
+    
+}
+body{
+    background: linear-gradient(135deg, #0d5240, #5b548a);
+}
+
+#title {
+    text-align: center;
+    display: contents;
+    padding-top: 400px;
+    font-size: 67px;
+    font-family: 'Times New Roman', Times, serif;
+    color: aliceblue;
+    
+}
+#q1{
+    padding-top: 40px;
+}
+
+#question-background{
+    width: 90%;
+    max-width: 627px;
+    background: white;
+    margin: 133px auto 0;
+    margin-top: 133px;
+    border-radius: 26px;
+    padding:40px 47px;
+    text-align: center;
+    opacity: 90%;
+}
+
+#the-question
+{
+    font-size: 30px;
+    padding: 0%;
+    margin: 0;
+    max-width: 627;
+    font-weight: 500;
+    color: black;
+}
+
+#choices{
+    text-align: left;
+    padding-left: 30%;
+}
+
+.options
+{
+    font-size: 20px;
+    text-align: left; 
+    display: inline-block;
+}
+
+
+#submitBtn
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -10px;
+    font-size: 20px;
+    width: 107px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    border-color: rgb(112, 107, 107);
+}
+#conatiner-changQ
+{
+    margin-left: -25%;
+   
+    justify-content: center; /* Center horizontally */
+    
+    
+   
+}
+#next, #previous
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+    
+   
+    font-size: 20px;
+    width: 107px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    border-color: rgb(112, 107, 107);
+}
+
+
+#conatiner-changQ :hover
+{
+    background-color: rgb(53, 53, 53);
+    color: white;
+   cursor: pointer;
+    
+   opacity: 70%;
+}
+.reveal
+{
+    
+
+    text-align: start;
+    display: contents;
+   
+}
+#reveal
+{
+   
+    font-size: 67px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(13, 54, 55);
+}
+
+#reveal2, #reveal3
+{
+   
+    font-size: 26px;
+
+}
+
+.moveWord
+{
+    margin-left: 140px;
+    font-weight: bold;
+}
